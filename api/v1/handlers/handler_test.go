@@ -1,4 +1,4 @@
-package main
+package handlers
 
 import (
 	"net/http"
@@ -10,27 +10,14 @@ import (
 	. "github.com/franela/goblin"
 )
 
-func Test(t *testing.T) {
-	g := Goblin(t)
-	g.Describe("Main", func() {
-		g.It("Should show Hello world!", func() {
-			message := HelloWorld()
-			g.Assert(message).Equal("Hello, world!")
-		})
-		g.It("Should setup a new server", func() {
-			e := setupServer()
-			g.Assert(e).IsNotNil()
-		})
-	})
-}
-
 func TestHttpServer(t *testing.T) {
 	g := Goblin(t)
 	var e *echo.Echo
-	g.Describe("Http server", func() {
-
+	g.Describe("Endpoint v1 handler", func() {
 		g.BeforeEach(func() {
-			e = setupServer()
+			e = echo.New()
+			root := e.Group("/api")
+			SetV1Routes(root)
 		})
 
 		g.Describe("Request to v1 endpoint", func() {
@@ -38,7 +25,7 @@ func TestHttpServer(t *testing.T) {
 				req := httptest.NewRequest(http.MethodGet, "/api/v1", nil)
 				rec := httptest.NewRecorder()
 				c := e.NewContext(req, rec)
-				h := &rootHandler{}
+				h := &handler{}
 
 				g.Assert(h.Ping(c)).IsNil()
 				g.Assert(rec.Code).Equal(http.StatusOK)
