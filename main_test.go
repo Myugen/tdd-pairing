@@ -13,5 +13,10 @@ func Test(t *testing.T) {
 			message := HelloWorld()
 			g.Assert(message).Equal("Hello, world!")
 		})
+
+		g.It("Should setup a new server", func() {
+			e := setupServer()
+			g.Assert(e).IsNotNil()
+		})
 	})
 }
