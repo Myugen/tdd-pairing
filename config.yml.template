@@ -3,3 +3,10 @@
 version: FILL_VERSION
 port: FILL_PORT
 author: FILL_AUTHOR
+
+db:
+  host: FILL_DB_HOST
+  port: FILL_DB_PORT
+  user: FILL_DB_USERNAME
+  password: FILL_DB_PASSWORD
+  database: FILL_DB_DATABASE

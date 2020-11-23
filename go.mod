@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/franela/goblin v0.0.0-20201006155558-6240afcb2eb7
+	github.com/go-pg/pg/v10 v10.7.3
 	github.com/labstack/echo/v4 v4.1.17
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
