@@ -1,1 +1,7 @@
 .idea
+
+# Config files
+config*.yml
+
+# Binary app
+tdd-pairing-go

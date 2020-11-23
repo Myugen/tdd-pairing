@@ -1,0 +1,5 @@
+# Copy config from this
+
+version: FILL_VERSION
+port: FILL_PORT
+author: FILL_AUTHOR

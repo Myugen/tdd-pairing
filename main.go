@@ -1,8 +1,7 @@
 package main
 
-import "github.com/myugen/tdd-pairing-go/pkg/httpserver"
+import "github.com/myugen/tdd-pairing-go/cmd"
 
 func main() {
-	server := httpserver.Setup()
-	server.Logger.Fatal(server.Start(":8080"))
+	cmd.Execute()
 }
